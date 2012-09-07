@@ -131,7 +131,8 @@ namespace jQueryFileUpload
             }
             if (redirect != null)
             {
-                Response.AddHeader("Location,", String.Format(redirect, Server.UrlEncode(json)));
+                Response.AddHeader("Location", String.Format(redirect, Server.UrlEncode(json)));
+                Response.StatusCode = 302;
                 Response.End();
             }
             if(Request.ServerVariables["HTTP_ACCEPT"] != null && Request.ServerVariables["HTTP_ACCEPT"].ToString().IndexOf("application/json") >= 0)
